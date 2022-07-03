@@ -23,4 +23,53 @@ const solve = () => getPowerConsumption(input);
 
 export default solve;
 
-export const second = () => getPowerConsumption(input);
+function divideArray(list: string[], index: number) {
+  return list.reduce(
+    (prev, curr) => {
+      if (curr[index] === '0') prev[0].push(curr);
+      if (curr[index] === '1') prev[1].push(curr);
+      return prev;
+    },
+    [[], []]
+  );
+}
+
+function getDividedArray(
+  list: string[],
+  index: number,
+  type: 'common' | 'least'
+) {
+  const [zero, one] = divideArray(list, index);
+  console.log(zero, one);
+
+  if (type === 'common') {
+    if (one.length >= zero.length) return one;
+    return zero;
+  }
+
+  if (type === 'least') {
+    if (zero.length <= one.length) return zero;
+    return one;
+  }
+}
+
+function getLifeSupport(reports: string[]) {
+  const length = reports[0].length;
+  let o2 = '';
+  let co2 = '';
+  let common = [...reports];
+  let least = [...reports];
+
+  [...Array(length)].some((r, i) => {
+    common = getDividedArray(common, i, 'common');
+    if (common.length === 1) o2 = common[0];
+    least = getDividedArray(least, i, 'least');
+    if (least.length === 1) co2 = least[0];
+    if (o2 && co2) return true;
+  });
+  console.log(o2, co2, common, least);
+
+  return parseInt(o2, 2) * parseInt(co2, 2);
+}
+
+export const second = () => getLifeSupport(input);
