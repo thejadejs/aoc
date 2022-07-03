@@ -40,7 +40,6 @@ function getDividedArray(
   type: 'common' | 'least'
 ) {
   const [zero, one] = divideArray(list, index);
-  console.log(zero, one);
 
   if (type === 'common') {
     if (one.length >= zero.length) return one;
@@ -67,7 +66,6 @@ function getLifeSupport(reports: string[]) {
     if (least.length === 1) co2 = least[0];
     if (o2 && co2) return true;
   });
-  console.log(o2, co2, common, least);
 
   return parseInt(o2, 2) * parseInt(co2, 2);
 }
