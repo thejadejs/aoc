@@ -603,8 +603,8 @@ const data = `
 `;
 
 const [numbersStr, ...boardsStr] = data.split(/\n\n/);
-const numbers = numbersStr.split(',').map(Number);
-const boards = boardsStr
+export const numbers = numbersStr.split(',').map(Number);
+export const boards = boardsStr
   .map((str) => {
     const rows = str.split(/\n/).filter(Boolean);
     return rows.map((r) => r.match(/\w+/g).map(Number));
