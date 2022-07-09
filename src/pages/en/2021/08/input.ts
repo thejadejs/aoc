@@ -199,6 +199,10 @@ dagbf fbgdc fcbaed geaf ga ebadcg agd begafd cgedafb afbed | fgcdbea fdeab fdabe
 fae dacfeg cade acdfbg ea dacefbg gcfabe cadfg degaf fbdge | bdafecg afdge fceadg fgbceda
 becagdf gabfce gb bfdca agb dbgafe agfec egbc cegfda gcbfa | cgbe bga bdgeaf faegc`;
 
-const input = data;
+const input = data.split(/\n/).map((str) => {
+  const result = str.split(' | ');
+  const [patterns, digits] = result.map((r) => r.split(' '));
+  return { patterns, digits };
+});
 
 export default input;

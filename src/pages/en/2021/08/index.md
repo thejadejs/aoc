@@ -2,7 +2,7 @@
 title: AoC 2021 - Day 8
 description: Day 8 of Advent of Code 2021
 layout: ../../../../layouts/MainLayout.astro
-setup: import './solution.ts'
+setup: import Solution from './solution.ts'
 ---
 
 ## Day 8: Seven Segment Search
@@ -85,7 +85,7 @@ Because the digits `1`, `4`, `7`, and `8` each use a unique number of segments, 
 
 > In the output values, how many times do digits 1, 4, 7, or 8 appear?
 >
-> ##### A
+> ##### {Solution}
 
 ### Part Two
 
